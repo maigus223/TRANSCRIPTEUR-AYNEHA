@@ -1,6 +1,6 @@
 // Concepteur et créateur : Mahamadou Issiaka MAIGA (MAIGUS)
 // Académie de l'alphabet AYNEHA
-const CACHE_NAME = 'ayneha-transcripteur-v1';
+const CACHE_NAME = 'ayneha-transcripteur-v2';
 const ASSETS = [
   './',
   './index.html',
