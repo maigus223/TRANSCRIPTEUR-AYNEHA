@@ -642,6 +642,9 @@ function transcribeBlock(block) {
 // ============================================================
 
 function transcribe(text) {
+  // CORRECTIF : normalisation NFC ; "ɛ̃" (ɛ + tilde combinant) s'écrit avec le E nasalisé (ẽ),
+  // et "ɔ̃" avec le O nasalisé (õ) — décision de l'auteur pour ɛ̃, par analogie pour ɔ̃.
+  text = text.normalize('NFC').replace(/\u025B\u0303/g, '\u1EBD').replace(/\u0254\u0303/g, '\u00F5');
   const paragraphs = text.split('\n');
   const result = { paragraphs: [], allCodepoints: [] };
 
