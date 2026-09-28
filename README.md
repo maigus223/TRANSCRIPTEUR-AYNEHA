@@ -1,72 +1,33 @@
-# Transcripteur Latin → AYNEHA
+# Transcripteur latin → AYNEHA
 
-**Transcripteur Latin → AYNEHA** est un outil de transcription phonétique qui convertit un texte saisi en alphabet latin (sous sa forme phonétique songhay) vers l'**AYNEHA**, le système d'écriture dédié à la langue **songhay**.
+Outil web (PWA, utilisable hors ligne) qui transcrit une saisie phonétique songhay en lettres latines vers l'écriture **AYNEHA**.
 
-🔗 **Démo en ligne** : [maigus223.github.io/TRANSCRIPTEUR-AYNEHA](https://maigus223.github.io/TRANSCRIPTEUR-AYNEHA/)
+*Web tool (installable, offline-capable) that transcribes phonetic Songhay typed in Latin letters into the AYNEHA script.*
 
-## Qu'est-ce qu'AYNEHA ?
+**En ligne / Live : https://maigus223.github.io/TRANSCRIPTEUR-AYNEHA/**
 
-AYNEHA est un alphabet original, monocaméral (sans majuscules/minuscules), qui se lit et s'écrit de droite à gauche (RTL). Il a été conçu spécifiquement pour transcrire fidèlement les sons de la langue songhay — nasalisation, gémination, consonnes muettes, digraphes — que l'alphabet latin classique ne restitue pas toujours avec précision.
+## Règles de transcription
+- voyelle + n (simple) = nasalisation ; lettre doublée = gémination
+- consonne suivie d'une autre consonne, ou en fin de mot = muette
+- sh / š → Σ · c / tch → TΣ · dj → DJ · ng / ŋ → Ŋ · gn / ny → Ɲ · v → w
+- ɛ, ɔ saisis directement = voyelles ouvertes
+- l'affichage est de droite à gauche (RTL)
 
-## Fonctionnalités
+## Fonctions
+Touches rapides (ŋ ɲ ɛ ɔ et voyelles nasales), copie du texte AYNEHA, copie des codes Unicode, panneau de détail pour vérifier la transcription, installation sur l'écran d'accueil.
 
-- **Conversion automatique** du texte latin saisi vers l'alphabet AYNEHA, en temps réel
-- **Application des règles phonétiques du songhay** (voir ci-dessous)
-- **9 touches de saisie rapide** pour les caractères phonétiques spéciaux non présents sur un clavier standard : `ŋ ɲ ɛ ɔ` (consonnes/voyelles nasales et ouvertes) et `ã ẽ ĩ õ ũ` (voyelles nasalisées)
-- **Copie en un clic** du résultat, soit sous forme de texte AYNEHA, soit sous forme de codes Unicode bruts
-- **Mode débogage** affichant le détail de la tokenisation, mot par mot, pour vérifier comment chaque règle a été appliquée
-- **Progressive Web App (PWA)** : installable sur téléphone ou ordinateur, et utilisable **hors-ligne** une fois installée
+## Développement
+HTML/CSS/JS sans dépendance. Ouvrir `index.html` dans un navigateur suffit. La police AYNEHA est nécessaire pour l'affichage correct.
 
-## Règles de transcription appliquées
+## Contribuer
+Un cas de transcription incorrect ? Ouvrez une *Issue* avec le mot saisi et le résultat attendu.
 
-| Règle | Résultat |
-|---|---|
-| voyelle + n (simple) | nasalisation de la voyelle |
-| *Exception* : voyelle+n en fin de mot, si le mot fait **plus de 3 lettres** | pas de nasalisation — le "n" redevient une consonne finale muette |
-| lettre doublée | gémination |
-| consonne suivie d'une autre consonne, ou en fin de mot | muette (nue) |
-| sh / š | → Σ |
-| c / tch | → TΣ |
-| dj / di + voyelle | → DJ |
-| *Exception* : "dii" | → D + I doublé (et non DJI) |
-| ng (hors contexte vocalique) / ŋ | → Ŋ |
-| voyelle + ng | → voyelle nasalisée + g (séparé) |
-| gn / ny / ni + voyelle | → Ɲ |
-| *Exception* : "nii" | → N + I doublé (et non Ɲ) |
-| v | → w |
-| ɛ, ɔ | saisis directement (déjà en forme ouverte) |
-| virgule et point-virgule | → glyphes AYNEHA dédiés |
-| autre ponctuation | conservée telle quelle |
+## Licence / License
 
-## Comment ça marche
-
-1. Ouvrez la page (ou l'app installée)
-2. Tapez votre texte en latin, en respectant l'orthographe phonétique du songhay
-3. Utilisez les touches rapides pour insérer les caractères spéciaux (ŋ, ɲ, ɛ, ɔ, ã, ẽ, ĩ, õ, ũ) si votre clavier ne les propose pas
-4. Le résultat en AYNEHA s'affiche automatiquement, à droite, en écriture droite-à-gauche
-5. Copiez le texte AYNEHA ou les codes Unicode selon votre besoin
-
-## Technique
-
-- Application 100 % **HTML / CSS / JavaScript**, sans dépendance externe
-- Fonctionne entièrement **côté client** (aucune donnée envoyée à un serveur)
-- Les glyphes AYNEHA occupent la Zone d'Usage Privé Unicode (**U+E000 à U+E061**) et nécessitent la police dédiée **Ayneha-Regular.ttf** pour s'afficher correctement
-- Structure PWA complète : `manifest.json` + `service worker` (`sw.js`) pour l'installation et le fonctionnement hors-ligne
-
-## Projet AYNEHA
-
-Ce transcripteur fait partie d'un écosystème plus large développé autour de l'alphabet AYNEHA : police numérique, clavier virtuel Android, calculatrice, et autres outils à venir, avec pour objectif de rendre l'écriture songhay pleinement utilisable au quotidien, à l'écrit comme au numérique.
-
----
+- **Code** : GNU GPL v3.0 ou ultérieure (voir [LICENSE](LICENSE)). Vous pouvez utiliser, étudier, modifier et partager ce code, à condition que toute version dérivée que vous distribuez reste libre sous la même licence. / Code: GNU GPL v3.0 or later. Derived versions you distribute must remain free under the same license.
+- **Police AYNEHA (Ayneha Type)** : SIL Open Font License 1.1 (fichier `OFL.txt` à conserver avec la police). / Font: SIL OFL 1.1.
+- **Nom « AYNEHA », logos et identité visuelle** : non couverts par la GPL ; me contacter avant tout usage commercial ou en tant que marque. / The AYNEHA name, logos and visual identity are not covered by the GPL.
 
 **Concepteur et créateur : Mahamadou Issiaka MAIGA (MAIGUS)**
-
-## Structure
-
-- `index.html` — application principale
-- `manifest.json` — configuration d'installation
-- `sw.js` — service worker (fonctionnement hors-ligne)
-- `icons/` — icônes de l'application
-
----
-© Mahamadou Issiaka MAIGA (MAIGUS)
+Contact : gwokmt2q@duck.com
+Site officiel : https://ayneha-songhay.github.io/ · Omniglot : https://www.omniglot.com/conscripts/ayneha.htm
